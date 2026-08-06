@@ -1,0 +1,9 @@
+//[title: 笑话]
+// [class: 娱乐类]
+//[author: blycoris]
+//[version: 1.0.0]
+//[price: 0]
+//[rule: ^笑话(.*)$ ]
+
+//[description: 指令：笑话，自行申请天行接口，设置参数set otto tianapi_key xxxx]
+sendText(request({ url: "http://api.tianapi.com/joke/index?key=" + get("tianapi_key"), json: true }).newslist[0].content)
