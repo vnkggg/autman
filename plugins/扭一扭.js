@@ -8,7 +8,7 @@
 //[author:hdbjlizhe]
 //[service:282617666]
 //[admin: true]
-//[description:扭一扭，对齐原版location跳转逻辑，参数key补otto前缀，修复消息卡住、链接失效报错
+//[description:扭一扭，羽化面板错误修复！
 //[param: {"required":false,"key":"otto.niuyiniu_url","placeholder":"","name":"接口url","desc":""}]
 
 const axios = require('axios');
