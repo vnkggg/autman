@@ -5,8 +5,8 @@
 //[title:扭一扭]
 //[icon:https://bbs.autman.cn/assets/files/2025-02-07/1738918121-687468-d4e2bcad5afe4c74a5e76f635f50b1a3.png]
 //[rule:^扭一扭$]
-//[author:hdbjlizhe]
-//[service:282617666]
+//[author:a740820]
+//[service:2990775834]
 //[admin: true]
 //[description:扭一扭，羽化面板错误修复！
 //[param: {"required":false,"key":"otto.niuyiniu_url","placeholder":"","name":"接口url","desc":""}]
