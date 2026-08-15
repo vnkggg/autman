@@ -2,14 +2,14 @@
 #[disable:false]
 #[public:true]
 #[rule: ^(酷我提现|酷我提现次数检测|酷我提现次数迁移)$]
-#[version: 3.11]
+#[version: 3.12]
 #[price: 38.88]
 #[cron: 0 8 * * *]
 #[title: 酷我Music提现]
-#[author: sky2022]
+#[author: a740820]
 #[admin: false]
 #[icon: https://img.cdn1.vip/i/69d62b975e88c_1775643543.png]
-#[description: 酷我提现插件，插件内置提现！等候定时提现和立即提现，采用次数制，用户可充值次数来进行提现，提现成功则扣除次数<br>指令:酷我提现、酷我提现次数检测<br>格式：手机号#密码<br>无需抓包，无需抓包<br>内置定时检测次数数量]
+#[description: 已修复。酷我提现插件，插件内置提现！等候定时提现和立即提现，采用次数制，用户可充值次数来进行提现，提现成功则扣除次数<br>指令:酷我提现、酷我提现次数检测<br>格式：手机号#密码<br>无需抓包，无需抓包<br>内置定时检测次数数量]
 
 # 全局变量声明
 today_date = None
@@ -17,7 +17,7 @@ today_time = None
 KuwoTXmoney = None
 KuwoTXcoin = None
 proxy_manager = None
-withdraw_delay = 0.0  # 默认值设为0，支持小数
+withdraw_delay = 0.6  # 默认值设为0，支持小数
 _time_offset = None  # NTP时间偏移量缓存（秒）
 
 import re
