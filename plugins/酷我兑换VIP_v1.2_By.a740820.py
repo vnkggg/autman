@@ -1,14 +1,14 @@
 #[pin:false]
-#[disable:true]
+#[disable:false]
 #[public:true]
 #[rule: ^酷我兑换$]
-#[version: 1.1]
+#[version: 1.2]
 #[title: 酷我兑换VIP]
-#[author: sky2022]
+#[author: a740820]
 #[admin: false]
 #[icon: https://img.cdn1.vip/i/69d62b975e88c_1775643543.png]
 #[price: 6.88]
-#[description: 指令:酷我兑换 手机号#密码登陆，用于兑换酷我VIP会员]
+#[description: 已修复]
 import requests
 import base64
 import json
@@ -28,33 +28,34 @@ RETRY_DELAY = 1  # 重试延迟(秒)
 MAX_EXCHANGE_TIMES = 5  # 每日最大兑换次数
 
 def recognize_captcha(image_base64: str) -> str:
-    """使用远程ddddocr接口进行验证码识别"""
+    """验证码识别（本地 ddddocr，不依赖外部服务）"""
     try:
-        ocr_url = 'https://ddddor.linzixuan.top/classification'
-        
-        # 移除base64头部信息
         if ',' in image_base64:
             image_base64 = image_base64.split(',')[1]
         image_base64 = image_base64.replace('data:image/jpeg;base64,', '')
         image_base64 = image_base64.replace('data:image/png;base64,', '')
-        
-        data = {'image': image_base64}
-        
-        response = requests.post(
-            ocr_url,
-            json=data,
-            timeout=10
-        )
-        
-        result = response.json()
-        if not result or 'result' not in result:
+
+        image_bytes = base64.b64decode(image_base64)
+
+        _ocr = _get_local_ocr()
+        result = _ocr.classification(image_bytes)
+        if not result:
             raise Exception("验证码识别失败: 返回结果无效")
-            
-        return result['result'].strip()
-        
+
+        return result.strip()
+
     except Exception as e:
         print(f"验证码识别出错: {str(e)}")
         raise
+
+_ocr_instance = None
+
+def _get_local_ocr():
+    global _ocr_instance
+    if _ocr_instance is None:
+        import ddddocr
+        _ocr_instance = ddddocr.DdddOcr(show_ad=False)
+    return _ocr_instance
 
 def login(phone: str, password: str):
     """登录酷我账号"""
@@ -276,4 +277,4 @@ def main():
         sender.reply(f"操作失败: {str(e)}")
 
 # 执行主函数
-main() 
+main()
