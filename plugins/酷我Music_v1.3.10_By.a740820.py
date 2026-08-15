@@ -2,14 +2,14 @@
 #[disable:true]
 #[public:true]
 #[rule: ^(酷我登录|酷我登陆|登陆酷我|登录酷我|酷我查询|查询酷我|酷我管理|管理酷我|酷我授权|酷我教程|酷我提现说明|总结今日酷我|酷我清理)$]
-#[version: 1.3.9]
+#[version: 1.3.10]
 #[price: 18.88]
 #[title: 酷我Music]
-#[author: sky2022]
+#[author: a740820]
 #[admin: false]
 #[cron: 1 8,15 * * *]
 #[icon: https://picui.ogmua.cn/s1/2026/02/26/69a05264c50f8.webp]
-#[description: 指令:酷我登陆 酷我查询 酷我管理 对接青龙/呆呆面板 支持手机号丨定时任务：每天8点和15点自动检测授权过期及CK失效并推送通知丨V1.3.9:新增定时检测推送，每天8点/15点自动检测授权到期和账号失效状态并通知用户丨V1.3.8:统一面板配置为面板类型+对接面板配置，并新增呆呆面板分组配置]
+#[description: 2026.8.14日20:23修复登录问题]
 
 import re
 import middleware
